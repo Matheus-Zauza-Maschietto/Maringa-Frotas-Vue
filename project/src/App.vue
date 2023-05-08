@@ -1,16 +1,30 @@
 <template>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
+  </nav>
   <router-view/>
 </template>
 
-<style lang="scss">
-@import "~@/assets/scss/vendors/bootstrap-vue/index";
-:root{
-  --primary-green: #3A8A48;
-  --default-background: #D9D9D9;
-  --side-menu-background: #1F1717;
-  --menu-background: #E1E8ED;
-  --primary-font-serif: "Montserrat Alternates";
-  --primary-font-sansserif: "Inter";
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
 
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
+}
 </style>
