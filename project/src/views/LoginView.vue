@@ -15,7 +15,7 @@
 
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" value="remember-me"> Remember me
+        <input type="checkbox" value="remember-me" class="checkbox"> Remember me
       </label>
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
@@ -33,5 +33,12 @@ export default {
     h1, h2{
         font-family: var(--primary-font-serif), 'Times New Roman', Times, serif;
         color: var(--primary-green);
+    }
+    main{
+        height: 100vh;
+        background: var(--side-menu-background);
+    }
+    .checkbox{
+        color: white;
     }
 </style>
