@@ -10,7 +10,7 @@
     </div>
     <div class="form-floating mb-3">
       <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
+      <label for="floatingPassword">Senha</label>
     </div>
 
     <div class="checkbox mb-3">
@@ -18,7 +18,8 @@
         <input type="checkbox" value="remember-me" class="checkbox"> Remember me
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <router-link to="cadastro" class="p-2 m-3">Criar Cadastro</router-link>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
   </form>
 </main>
 </template>
@@ -34,11 +35,19 @@ export default {
         font-family: var(--primary-font-serif), 'Times New Roman', Times, serif;
         color: var(--primary-green);
     }
+    h2, a{
+      color: white;
+    }
     main{
         height: 100vh;
         background: var(--side-menu-background);
     }
     .checkbox{
         color: white;
+    }
+    a{
+        display: block;
+        text-decoration: none;
+        font-size: 18px;
     }
 </style>
