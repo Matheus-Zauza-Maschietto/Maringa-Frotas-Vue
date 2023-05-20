@@ -3,7 +3,10 @@
     <font-awesome-icon icon="fa-solid fa-bars" size="xl" class="m-3" data-bs-toggle="offcanvas" data-bs-target="#side-bar" aria-controls="side-bar"/>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="side-bar">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title">Maringa Frotas’s</h5>
+        
+        <h5 class="offcanvas-title">
+          <router-link to="/" style="text-decoration: none; color: white;">Maringa Frotas’s</router-link>
+        </h5>
         <font-awesome-icon icon="fa-solid fa-bars" size="xl" data-bs-dismiss="offcanvas" aria-label="Close" style="color: white;"/>
       </div>
       <div class="offcanvas-body">

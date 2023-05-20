@@ -1,55 +1,53 @@
 <template>
   <div class="home">
     <SideMenuC/>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Launch demo modal
-    </button>
+    <TableC 
+      :headers="['Placa', 'Tipo de Veiculo', 'Modelo', 'Quilometragem']"
+      :body="[{Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'}]"
+      :botoes="botoes"
+      @exibirModal="exibirModal = !exibirModal"
+    />
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog" style="display: block;">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body"> ... </div>
-          <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <button class="btn btn-outline-primary" @click="exibirModal = !exibirModal">botão que abre modal</button>
+    <ModalC titulo="titulo do modal" :exibir="exibirModal" @fecharModal="exibirModal=false" :botoes="botoes">
+      <p>Esse modal serve para exibir algo</p>
+    </ModalC>
 
   </div>
 </template>
 
 <script>
-import SideMenuC from "@/components/SideMenuC.vue"
+import SideMenuC from "@/components/SideMenuC.vue";
+import TableC from "@/components/TableC.vue";
+import botao from "@/entities/botao";
+import ModalC from "@/components/ModalC.vue";
+
 export default {
   name: 'HomeView',
   components: {
-    SideMenuC
+    SideMenuC,
+    TableC,
+    ModalC
+  },
+  data(){
+    return{
+      exibirModal: false,
+      botoes: [
+        new botao(1, 'Viagens', 'btn-primary', 'exibirModal')
+      ]
+    }
   }
 }
 </script>
+
+<style>
+
+</style>

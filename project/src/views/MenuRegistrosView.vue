@@ -1,6 +1,7 @@
 <template>
     <div>
         <SideMenuC/>
+        <h2 class="text-center">Registros</h2>
         <FunctionsMenuC :paths="paths"/>
     </div>
 </template>
