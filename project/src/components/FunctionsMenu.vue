@@ -1,9 +1,9 @@
 <template>
-  <div class="col-10 d-flex justify-content-around align-content-around">
-    <div class="col-md-4 m-5" v-for="path in paths" :key="path.name">
-        <router-link :to="path.url" class="text-center">
-            <font-awesome-icon :icon="path.icon"/>
-            <span>{{ path.label }}</span>
+  <div class="col-md-8 m-auto rounded-2 d-flex justify-content-center align-items-center flex-wrap" style="background: var(--menu-background); height: 70vh;">
+    <div class="col-6" v-for="path in paths" :key="path.name">
+        <router-link :to="path.view" class="text-center d-flex flex-column">
+            <font-awesome-icon :icon="path.icon" style="font-size: 80px;"/>
+            <span style="font-size: 26px;">{{ path.label }}</span>
         </router-link>
     </div>
   </div>
@@ -15,12 +15,19 @@ export default {
     props: {
         paths: {
             type: Array,
-            required: true
+            required: true,
+            name: String,
+            label: String,
+            view: String,
+            icon: String
         }
     }
 }
 </script>
 
-<style>
-
+<style scoped>
+    a{
+        font-size: 20px;
+        text-decoration: none;
+    }
 </style>

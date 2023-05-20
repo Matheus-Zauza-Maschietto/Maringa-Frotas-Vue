@@ -16,6 +16,16 @@ const routes = [
     path: '/cadastro',
     name: 'cadastro',
     component: () => import('../views/CadastroView.vue')
+  },
+  {
+    path: '/cadastros',
+    name: 'menuCadastros',
+    component: () => import('../views/MenuCadastrosView.vue')
+  },
+  {
+    path: '/registros',
+    name: 'menuRegistros',
+    component: () => import('../views/MenuRegistrosView.vue')
   }
 ]
 

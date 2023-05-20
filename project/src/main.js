@@ -4,12 +4,11 @@ import router from './router'
 import store from './store'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-import { faBars, faPlus, faTable, faGasPump, faCar, faOilCan } from '@fortawesome/free-solid-svg-icons'
+import { faTools, faUserSecret, faBars, faPlus, faTable, faGasPump, faCar, faOilCan, faBuilding, faPeopleGroup, faTruck, faBoxesStacked } from '@fortawesome/free-solid-svg-icons'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-library.add(faUserSecret, faBars, faPlus, faTable, faGasPump, faCar, faOilCan )
+library.add(faUserSecret, faBars, faPlus, faTable, faGasPump, faCar, faOilCan, faBuilding, faTools, faPeopleGroup, faTruck, faBoxesStacked )
 
 createApp(App)
 .use(store)

@@ -18,16 +18,16 @@
           <li class="nav-item">
           </li>
           <li class="">
-            <a href="#" class="nav-link py-3 border-bottom border-top rounded-0" data-bs-toggle="tooltip" data-bs-placement="right">
+            <router-link to="cadastros" class="nav-link py-3 border-bottom border-top rounded-0" data-bs-toggle="tooltip" data-bs-placement="right">
               <font-awesome-icon icon="fa-solid fa-plus" class="icon bi pe-none" role="img"/>
               <span>Adicionar Cadastros</span>
-            </a>
+            </router-link>
           </li>
           <li>
-            <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right">
+            <router-link to="registros" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right">
               <font-awesome-icon icon="fa-solid fa-table"  class="icon bi pe-none" role="img"/>
               <span>Resgistros</span>
-            </a>
+            </router-link>
           </li>
           <li>
             <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right">
