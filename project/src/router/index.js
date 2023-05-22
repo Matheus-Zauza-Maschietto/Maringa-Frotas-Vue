@@ -26,6 +26,29 @@ const routes = [
     path: '/registros',
     name: 'menuRegistros',
     component: () => import('../views/MenuRegistrosView.vue')
+  },
+  {
+    path: '/registros/veiculos',
+    name: 'registrosVeiculos',
+    component: () => import('../views/VeiculosView.vue'),
+  }
+  ,
+  {
+    path: '/registros/motoristas',
+    name: 'registrosMotoristas',
+    component: () => import('../views/MotoristasView.vue'),
+  }
+  ,
+  {
+    path: '/registros/empresas',
+    name: 'registrosEmpresas',
+    component: () => import('../views/EmpresasView.vue'),
+  }
+  ,
+  {
+    path: '/registros/manutencoes',
+    name: 'registrosManutencoes',
+    component: () => import('../views/ManutencoesView.vue'),
   }
 ]
 
