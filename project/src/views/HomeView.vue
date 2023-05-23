@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <SideMenuC/>
-    <TableC class="col-2"
+    <TableC
       :headers="['Placa', 'Tipo de Veiculo', 'Modelo', 'Quilometragem']"
       :body="[{Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
               {Placa: 'xxx-1111', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
@@ -42,9 +42,7 @@ export default {
       exibirModal: false,
       body: '',
       botoes: [
-        new botao(1, 'Viagens', 'btn-primary', 'exibirModal'),
-        new botao(1, 'btn2', 'btn-secondary', 'exibirModal'),
-        new botao(1, 'btn3', 'btn-danger', 'exibirModal')
+        new botao(1, 'Viagens', 'btn-primary', 'exibirModal')
       ]
     }
   },
