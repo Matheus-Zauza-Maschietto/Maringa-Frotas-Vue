@@ -18,7 +18,7 @@
 
     <button class="btn btn-outline-primary" @click="exibirModal = !exibirModal">botão que abre modal</button>
     <ModalC titulo="titulo do modal" :exibir="exibirModal" @fecharModal="exibirModal=false" :botoes="botoes">
-      TESTE MODAL
+      <FormC :botoes="botoes" :fields="fields"/>
     </ModalC>
 
   </div>
@@ -29,20 +29,30 @@ import SideMenuC from "@/components/SideMenuC.vue";
 import TableC from "@/components/TableC.vue";
 import botao from "@/entities/botao";
 import ModalC from "@/components/ModalC.vue";
+import FormC from "@/components/FormC.vue";
+import field from "@/entities/Field";
 
 export default {
   name: 'HomeView',
   components: {
     SideMenuC,
     TableC,
-    ModalC
+    ModalC,
+    FormC
   },
   data(){
     return{
       exibirModal: false,
       body: '',
       botoes: [
-        new botao(1, 'Viagens', 'btn-primary', 'exibirModal')
+        new botao(1, 'Viagens', 'btn-primary', 'exibirModal'),
+        new botao(1, 'Cancelar', 'btn-danger', 'exibirModal')
+      ],
+      fields: [
+        new field('teste1', 'text', 'col-6'),
+        new field('teste2', 'text', 'col-6'),
+        new field('teste3', 'date', 'col-6'),
+        new field('teste4', 'text', 'col-12'),
       ]
     }
   },

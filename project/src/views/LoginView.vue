@@ -12,7 +12,6 @@
       <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Senha</label>
     </div>
-
     <div class="checkbox mb-3">
       <label>
         <input type="checkbox" value="remember-me" class="checkbox"> Remember me
