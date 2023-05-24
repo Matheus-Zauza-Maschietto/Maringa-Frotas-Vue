@@ -1,7 +1,7 @@
 <template>
   <form class="col-12">
     <h3 class="text-center">{{ title }}</h3>
-    <div v-for="field in fields" :key="field.label" class="d-flex flex-column" :class="[field.width]">
+    <div v-for="field in fields" :key="field.label" class="m-0" :class="[field.width]">
 
       <div v-if="field.type == 'select'" class="mb-3">
         <label class="form-label">{{ field.label }}</label>
