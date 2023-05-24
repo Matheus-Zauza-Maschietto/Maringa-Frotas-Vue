@@ -21,25 +21,25 @@ export default {
                 {
                     name: "frota",
                     label: "Frota",
-                    view: "#",
+                    view: "/cadastros/veiculos",
                     icon: "fa-solid fa-car"
                 },
                 {
                     name: "funcionarios",
                     label: "Funcionarios",
-                    view: "#",
+                    view: "/cadastros/funcionarios",
                     icon: "fa-solid fa-people-group"
                 },
                 {
                     name: "empresas",
                     label: "Empresas",
-                    view: "#",
+                    view: "/cadastros/empresas",
                     icon: "fa-solid fa-building"
                 },
                 {
                     name: "manutencao",
                     label: "Manutenção",
-                    view: "#",
+                    view: "/cadastros/manutencoes",
                     icon: "fa-solid fa-screwdriver-wrench"
                 },
             ]
