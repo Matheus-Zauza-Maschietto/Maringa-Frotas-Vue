@@ -28,9 +28,9 @@ const routes = [
     component: () => import('../views/Cadastros/EmpresasView.vue')
   },
   {
-    path: '/cadastros/motoristas',
-    name: 'cadastrosMotoristas',
-    component: () => import('../views/Cadastros/MotoristasView.vue')
+    path: '/cadastros/funcionarios',
+    name: 'cadastrosFuncionarios',
+    component: () => import('../views/Cadastros/FuncionariosView.vue')
   },
   {
     path: '/cadastros/manutencoes',

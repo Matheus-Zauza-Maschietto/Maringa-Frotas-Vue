@@ -30,7 +30,7 @@ export default {
                     view: "/cadastros/funcionarios",
                     icon: "fa-solid fa-people-group"
                 },
-                {
+                {   
                     name: "empresas",
                     label: "Empresas",
                     view: "/cadastros/empresas",

@@ -8,7 +8,7 @@
 <script>
 import SideMenuC from "@/components/SideMenuC.vue"
 export default {
-    name: "CadastroMotoristasView",
+    name: "CadastroFuncionarioView",
     components: {
         SideMenuC
     },

@@ -20,6 +20,21 @@
     <ModalC titulo="titulo do modal" :exibir="exibirModal" @fecharModal="exibirModal=false" :botoes="botoes">
       <FormC :botoes="botoes" :fields="fields"/>
     </ModalC>
+    
+    <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
+      <li>
+        <div class="input-group mt-2 mx-2">
+          <div class="form-outline w-auto">
+            <input type="search" id="form1" class="form-control-dropdown" />
+            <label class="form-label" for="form1">Search</label>
+          </div>
+        </div>
+      </li>
+      <li><hr class="dropdown-divider" /></li>
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul>
 
   </div>
 </template>
