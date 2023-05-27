@@ -25,8 +25,8 @@ export default {
                     icon: "fa-solid fa-car"
                 },
                 {
-                    name: "motoristas",
-                    label: "Motoristas",
+                    name: "funcionarios",
+                    label: "Funcionarios",
                     view: "/registros/motoristas",
                     icon: "fa-solid fa-people-group"
                 },

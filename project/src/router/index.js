@@ -55,7 +55,7 @@ const routes = [
   {
     path: '/registros/motoristas',
     name: 'registrosMotoristas',
-    component: () => import('../views/Registros/MotoristasView.vue'),
+    component: () => import('../views/Registros/FuncionariosView.vue'),
   },
   {
     path: '/registros/empresas',
