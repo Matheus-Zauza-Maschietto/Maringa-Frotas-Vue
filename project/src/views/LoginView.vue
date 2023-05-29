@@ -12,11 +12,6 @@
       <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Senha</label>
     </div>
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me" class="checkbox"> Remember me
-      </label>
-    </div>
     <router-link to="cadastro" class="p-2 m-3">Criar Cadastro</router-link>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
   </form>

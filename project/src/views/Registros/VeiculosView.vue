@@ -1,20 +1,13 @@
 <template>
-    <div>
+    <div id="veiculosView">
         <SideMenuC/>
         <h2 class="text-center">Veiculos</h2>
         <TableC 
-        :headers="['Placa', 'Tipo de Veiculo', 'Modelo', 'Quilometragem']"
-        :body="[{Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-                {Placa: 'xxx-1111', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-                {Placa: 'xxx-2222', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-                {Placa: 'xxx-3333', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-                {Placa: 'xxx-4444', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-                {Placa: 'xxx-5555', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-                {Placa: 'xxx-6666', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-                {Placa: 'xxx-7777', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-                {Placa: 'xxx-8888', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'}]"
+        :headers="['Placa', 'Tipo de Veiculo', 'Modelo', 'Marca', 'Tipo de Combustivel', 'Quilometragem', 'Orgão', 'Data de Aquisição', 'Status', 'Em Leilão']"
+        :body="$store.state.veiculos"
         :botoes="botoes"
         @exibirModal="iniciarModal($event)"
+        @deletarRegistro="deletarRegistro($event)"
         />
     </div>
 </template>
@@ -23,6 +16,8 @@
 import TableC from "@/components/TableC.vue";
 import botao from "@/entities/botao";
 import SideMenuC from "@/components/SideMenuC.vue"
+import Veiculos from "@/services/Veiculos";
+
 export default {
     name: "VeiculosView",
     components: {
@@ -34,19 +29,36 @@ export default {
       exibirModal: false,
       body: '',
       botoes: [
-        new botao(1, 'Viagens', 'btn-primary', 'exibirModal')
+        new botao(1, 'Viagens', 'btn-primary', 'exibirModal'),
+        new botao(1, 'Deletar', 'btn-danger', 'deletarRegistro')
       ]
     }
   },
   methods: {
-    iniciarModal(body){
-      this.exibirModal = true;
-      this.body = body
+    deletarRegistro(item){
+        if(confirm('Tem certeza que deseja excluir esse registro ?')){
+          Veiculos.delete(item.id)
+          .then(() => {
+            this.$store.commit('removerVeiculo', item.id)
+            alert('Registro excluido com sucesso')
+          })
+          .catch(() => {
+            alert('Não foi possivel excluir esse registro')
+          })
+        }
     }
+  },
+  created(){
+    Veiculos.listar().then((retorno) =>{
+      this.$store.commit("inserirVeiculo", retorno.data)
+    })
   }
 }
 </script>
 
-<style>
-
+<style scoped>
+  #veiculosView{
+    height: 100vh;
+    background-color: rgb(204, 204, 204);
+  }
 </style>

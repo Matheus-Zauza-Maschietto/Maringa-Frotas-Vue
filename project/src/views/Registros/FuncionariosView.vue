@@ -1,20 +1,13 @@
 <template>
-    <div>
+    <div id="funcionariosView">
         <SideMenuC/>
         <h2 class="text-center">Funcionarios</h2>
         <TableC 
         :headers="['Nome', 'CPF', 'CNH', 'Orgão', 'Cargo']"
-        :body="[{Nome: 'Matheus Zauza Maschietto', CPF: '000.000.000-00', CNH: '00000000000', Orgao: 'Prefeitura', Cargo: 'Mortorista'},
-                {Nome: 'Matheus Zauza Maschietto', CPF: '000.000.000-00', CNH: '00000000000', Orgao: 'Prefeitura', Cargo: 'Mortorista'},
-                {Nome: 'Matheus Zauza Maschietto', CPF: '000.000.000-00', CNH: '00000000000', Orgao: 'Prefeitura', Cargo: 'Mortorista'},
-                {Nome: 'Matheus Zauza Maschietto', CPF: '000.000.000-00', CNH: '00000000000', Orgao: 'Prefeitura', Cargo: 'Mortorista'},
-                {Nome: 'Matheus Zauza Maschietto', CPF: '000.000.000-00', CNH: '00000000000', Orgao: 'Prefeitura', Cargo: 'Mortorista'},
-                {Nome: 'Matheus Zauza Maschietto', CPF: '000.000.000-00', CNH: '00000000000', Orgao: 'Prefeitura', Cargo: 'Mortorista'},
-                {Nome: 'Matheus Zauza Maschietto', CPF: '000.000.000-00', CNH: '00000000000', Orgao: 'Prefeitura', Cargo: 'Mortorista'},
-                {Nome: 'Matheus Zauza Maschietto', CPF: '000.000.000-00', CNH: '00000000000', Orgao: 'Prefeitura', Cargo: 'Mortorista'},
-                {Nome: 'Matheus Zauza Maschietto', CPF: '000.000.000-00', CNH: '00000000000', Orgao: 'Prefeitura', Cargo: 'Mortorista'}]"
+        :body="$store.state.funcionarios"
         :botoes="botoes"
         @exibirModal="iniciarModal($event)"
+        @deletarRegistro="deletarRegistro($event)"
         />
     </div>
 </template>
@@ -23,6 +16,8 @@
 import TableC from "@/components/TableC.vue";
 import botao from "@/entities/botao";
 import SideMenuC from "@/components/SideMenuC.vue"
+import Funcionarios from "@/services/Funcionarios";
+
 export default {
     name: "FuncionariosView",
     components: {
@@ -34,19 +29,36 @@ export default {
       exibirModal: false,
       body: '',
       botoes: [
-        new botao(1, 'Viagens', 'btn-primary', 'exibirModal')
+        new botao(1, 'Viagens', 'btn-primary', 'exibirModal'),
+        new botao(1, 'Deletar', 'btn-danger', 'deletarRegistro')
       ]
     }
   },
   methods: {
-    iniciarModal(body){
-      this.exibirModal = true;
-      this.body = body
+    deletarRegistro(item){
+        if(confirm('Tem certeza que deseja excluir esse registro ?')){
+          Funcionarios.delete(item.id)
+          .then(() => {
+            this.$store.commit('removerFuncionario', item.id)
+            alert('Registro excluido com sucesso')
+          })
+          .catch(() => {
+            alert('Não foi possivel excluir esse registro')
+          })
+        }
     }
+  },
+  created(){
+    Funcionarios.listar().then((retorno) =>{
+      this.$store.commit("inserirFuncionario", retorno.data)
+    })
   }
 }
 </script>
 
 <style>
-
+  #funcionariosView{
+    height: 100vh;
+    background-color: rgb(204, 204, 204);
+  }
 </style>

@@ -53,8 +53,8 @@ const routes = [
     component: () => import('../views/Registros/VeiculosView.vue'),
   },
   {
-    path: '/registros/motoristas',
-    name: 'registrosMotoristas',
+    path: '/registros/funcionarios',
+    name: 'registrosFuncionarios',
     component: () => import('../views/Registros/FuncionariosView.vue'),
   },
   {

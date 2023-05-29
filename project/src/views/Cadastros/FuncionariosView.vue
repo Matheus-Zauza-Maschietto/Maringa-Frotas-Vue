@@ -7,61 +7,97 @@
 
             <div class="row">
                 <div class="mb-4 col-md-6 col-10">
-                    <label for="nome" class="form-label">Nome</label>
-                    <input required type="text" class="form-control" id="nome">
+                    <label for="nome" class="form-label" >Nome</label>
+                    <input required type="text" class="form-control" id="nome" v-model="fields.nome">
                 </div>
                 <div class="mb-4 col-md-6 col-10">
-                    <label for="email" class="form-label">E-Mail</label>
-                    <input required type="email" class="form-control" id="email">
+                    <label for="email" class="form-label" >E-Mail</label>
+                    <input required type="email" class="form-control" id="email" v-model="fields.email">
                 </div>
             </div>
             
             <div class="row">
                 <div class="mb-3 col-md-6 col-10">
-                    <label for="cpf" class="form-label">CPF</label>
-                    <input required type="text" class="form-control" id="cpf" placeholder="000.000.000-00">
+                    <label for="cpf" class="form-label" >CPF</label>
+                    <input required type="number" class="form-control" id="cpf" placeholder="000.000.000-00" v-model="fields.cpf">
                 </div>
                 <div class="mb-4 col-md-6 col-10">
-                    <label for="telefone" class="form-label">Telefone</label>
-                    <input required type="text" class="form-control" id="telefone" placeholder="(00) 90000-0000">
+                    <label for="telefone" class="form-label" >Telefone</label>
+                    <input required type="number" class="form-control" id="telefone" placeholder="(00) 90000-0000" v-model="fields.telefone">
                 </div>
             </div>
 
             <div class="row">
                 <div class="mb-3 col-md-6 col-10">
                     <label for="empresasManutencao" class="form-label">Cargo</label>
-                    <SelectCVue required :options="options" id="empresasManutencao"/>
+                    <select name="" class="form-select" v-model="fields.idCargo">
+                        <option v-for="option in cargos" :key="option.id" :value="option.id">{{ option.text }}</option>
+                    </select>
                 </div>
 
-                <div class="mb-4 col-md-6 col-10">
-                    <label for="telefone" class="form-label">Senha</label>
-                    <input required type="password" class="form-control" id="telefone" placeholder="******">
+                <div class="mb-3 col-md-6 col-10">
+                    <label for="empresasManutencao" class="form-label">Orgão</label>
+                    <select name="" class="form-select" v-model="fields.idOrgao">
+                        <option v-for="option in orgaos" :key="option.id" :value="option.id">{{ option.text }}</option>
+                    </select>
                 </div>
             </div>
 
-            <button class="btn btn-success d-block m-auto">Adicionar Empresa</button>
+            <button class="btn btn-success d-block m-auto" @click.prevent="criarFuncionario">Adicionar Funcionário</button>
         </form>
     </div>
 </template>
 
 <script>
-import SelectCVue from '../../components/inputs/SelectC.vue'
 import SideMenuC from "@/components/SideMenuC.vue"
-import option from "@/entities/Option";
+import Cargos from "@/services/Cargos";
+import Funcionarios from '@/services/Funcionarios';
+import Orgaos from '@/services/Orgaos';
+
 export default {
     name: "CadastroFuncionarioView",
     components: {
         SideMenuC,
-        SelectCVue
     },
     data(){
         return{
-            options: [
-                new option(1, 'test1', 'Teste 1'),
-                new option(2, 'test2', 'Teste 2'),
-                new option(3, 'test3', 'Teste 3')
-            ],
+            cargos: [],
+            orgaos: [],
+            fields: {
+                nome: '',
+                email: '',
+                cpf: '',
+                telefone: '',
+                idCargo: 0,
+                idOrgao: 0
+            }
         }
+    },
+    methods: {
+        async criarFuncionario(){
+            this.fields.telefone = Number(this.fields.telefone)
+            this.fields.idCargo = Number(this.fields.idCargo)
+            this.fields.idOrgao = Number(this.fields.idOrgao)
+
+
+            Funcionarios.criar(this.fields)
+            .then(() => {
+                alert("Funcionário criado com sucesso")
+                this.$router.push('/registros/funcionarios')
+            })
+            .catch(() => {
+                alert("Não foi possivel criar esse usuário")
+            })
+        }
+    },
+    created(){
+        Cargos.listar().then((retorno) => {
+            this.cargos = retorno.data
+        })
+
+        Orgaos.listar().then((retorno) => {
+            this.orgaos = retorno.data
+        })
     }
 }
 </script>

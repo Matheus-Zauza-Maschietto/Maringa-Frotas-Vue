@@ -1,6 +1,6 @@
 <template>
-    <div class="table-responsive"  id="teste">
-        <table class="table text-center align-middle table-striped">
+    <div class="table-responsive"  id="tabela">
+        <table class="table table-hover text-center align-middle">
             <thead class="sticky-top fw-bold shadow-sm" style="background: var(--primary-green); color: white; height: 60px; vertical-align: middle;">
                 <tr>
                     <td v-for="head in headers" :key="head">{{ head }}</td>
@@ -9,7 +9,7 @@
             </thead>
             <tbody>
                 <tr v-for="linha in body" :key="linha">
-                    <td v-for="item in linha" :key="item">{{ item }}</td>
+                    <td v-for="(item, index) in linha" :key="item" v-show="index!=='id'">{{ item }}</td>
                     <td class="col-2" v-if="botoes">
                         <button v-for="botao in botoes" :key="botao.id" class="col m-1 btn" :class="[botao.classType]" @click="$emit(botao.eventEmit, linha)">{{ botao.label }}</button>
                     </td>
@@ -45,8 +45,14 @@ export default {
 </script>
 
 <style scoped>
-    #teste{
-        height: 500px!important;
-        overflow-y: auto!important;;
-    } 
+    
+    #tabela{
+        height: 576px!important;
+        overflow-y: auto!important;
+        background-color: whitesmoke;
+    }
+
+    tbody tr:hover{
+        cursor: pointer;
+    }
 </style>

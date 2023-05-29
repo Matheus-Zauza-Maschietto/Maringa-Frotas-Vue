@@ -1,6 +1,5 @@
 <template>
-  <select name="" class="form-select">
-    <option value="null" selected>Selecione uma opção</option>
+  <select name="" class="form-select" v-model="escolha">
     <option v-for="option in options" :key="option.id" :value="option.value">{{ option.text }}</option>
   </select>
 </template>
@@ -10,6 +9,11 @@ import option from '@/entities/Option.js'
 
 export default {
     name: "SelectC",
+    data(){
+      return{
+        escolha: ''
+      }
+    },
     props: {
         options: {
             required: true,
@@ -19,6 +23,12 @@ export default {
           type: Boolean,
           default: false,
         }
+    },
+    watch: {
+      escolha(){
+        console.log(this.escolha)
+        this.$emit('valor', this.escolha)
+      }
     },
     mounted(){
       if(this.required) document.querySelector('select').setAttribute('required', '');
