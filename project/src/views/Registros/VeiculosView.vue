@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
   #veiculosView{
-    height: 100vh;
+    min-height: 100vh;
     background-color: rgb(204, 204, 204);
   }
 </style>

@@ -21,20 +21,49 @@
       <FormC :botoes="botoes" :fields="fields"/>
     </ModalC>
     
-    <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
-      <li>
-        <div class="input-group mt-2 mx-2">
-          <div class="form-outline w-auto">
-            <input type="search" id="form1" class="form-control-dropdown" />
-            <label class="form-label" for="form1">Search</label>
-          </div>
-        </div>
-      </li>
-      <li><hr class="dropdown-divider" /></li>
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
-    </ul>
+    <SideMenuC/>
+    <TableC
+      :headers="['Placa', 'Tipo de Veiculo', 'Modelo', 'Quilometragem']"
+      :body="[{Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-1111', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-2222', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-3333', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-4444', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-5555', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-6666', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-7777', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-8888', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'}]"
+      :botoes="botoes"
+      @exibirModal="iniciarModal($event)"
+    /><SideMenuC/>
+    <TableC
+      :headers="['Placa', 'Tipo de Veiculo', 'Modelo', 'Quilometragem']"
+      :body="[{Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-1111', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-2222', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-3333', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-4444', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-5555', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-6666', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-7777', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-8888', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'}]"
+      :botoes="botoes"
+      @exibirModal="iniciarModal($event)"
+    /><SideMenuC/>
+    <TableC
+      :headers="['Placa', 'Tipo de Veiculo', 'Modelo', 'Quilometragem']"
+      :body="[{Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-1111', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-2222', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-3333', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-4444', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-5555', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-6666', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-7777', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
+              {Placa: 'xxx-8888', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'}]"
+      :botoes="botoes"
+      @exibirModal="iniciarModal($event)"
+    />
 
   </div>
 </template>

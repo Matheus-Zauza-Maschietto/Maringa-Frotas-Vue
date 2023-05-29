@@ -2,7 +2,7 @@
     <div>
         <SideMenuC/>
         <h2 class="text-center">Cadastro Funcionarios</h2>
-        <form class="col-lg-10 container m-auto p-5 rounded-2" style="background: var(--menu-background);">
+        <form class="col-lg-10 container m-auto p-5 rounded-2 d-block" style="background: var(--menu-background);">
             <h3 class="text-center mb-5">Informações de Identificação</h3>
 
             <div class="row">

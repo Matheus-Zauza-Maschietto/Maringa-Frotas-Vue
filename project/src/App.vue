@@ -1,12 +1,8 @@
 <template>
-  <router-view id="app"/>
+  <router-view/>
 </template>
 
 <style>
-#app{
-  overflow-y: auto;
-}
-
 :root{
   --primary-green: #3A8A48;
   --default-background: #D9D9D9;
