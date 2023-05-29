@@ -5,7 +5,7 @@
         <form class="col-lg-10 container m-auto p-5 rounded-2 d-block" style="background: var(--menu-background);">
             <h3 class="text-center mb-5">Informações de Identificação</h3>
 
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="mb-4 col-md-6 col-10">
                     <label for="nome" class="form-label" >Nome</label>
                     <input required type="text" class="form-control" id="nome" v-model="fields.nome">
@@ -16,7 +16,7 @@
                 </div>
             </div>
             
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="mb-3 col-md-6 col-10">
                     <label for="cpf" class="form-label" >CPF</label>
                     <input required type="number" class="form-control" id="cpf" placeholder="000.000.000-00" v-model="fields.cpf">
@@ -27,7 +27,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="mb-3 col-md-6 col-10">
                     <label for="empresasManutencao" class="form-label">Cargo</label>
                     <select name="" class="form-select" v-model="fields.idCargo">
