@@ -4,7 +4,8 @@ export default createStore({
   state: {
     empresas: [],
     funcionarios: [],
-    veiculos: []
+    veiculos: [],
+    menu: false
   },
   getters: {
   },

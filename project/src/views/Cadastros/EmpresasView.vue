@@ -2,7 +2,7 @@
     <div>
         <SideMenuC/>
         <h2 class="text-center mb-4">Cadastro Empresa</h2>
-        <form class="col-lg-10 container m-auto p-5 rounded-2" style="background: var(--menu-background);" action="">
+        <form class="col-lg-10 container m-auto p-5 rounded-2 position-relative" style="background: var(--menu-background);" action="">
             <h3 class="text-center mb-5">Informações de Identificação</h3>
 
             <div class="mb-3 col-md-6 col-10">

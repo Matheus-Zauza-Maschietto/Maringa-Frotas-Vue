@@ -27,7 +27,7 @@ export default {
                 {
                     name: "funcionarios",
                     label: "Funcionarios",
-                    view: "/registros/motoristas",
+                    view: "/registros/funcionarios",
                     icon: "fa-solid fa-people-group"
                 },
                 {
