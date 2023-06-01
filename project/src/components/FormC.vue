@@ -17,13 +17,13 @@
 
     </div>
     <div class="col-12">
-      <button v-for="botao in botoes" :key="botao.id" class="col m-1 btn" :class="[botao.classType]" @click="$emit(botao.eventEmit, linha)">{{ botao.label }}</button>
+      <button v-for="button in buttons" :key="button.id" class="col m-1 btn" :class="[button.classType]" @click="$emit(button.eventEmit, linha)">{{ button.label }}</button>
     </div>
   </form>
 </template>
 
 <script>
-import botao from '@/entities/botao.js';
+import button from '@/entities/Button.js';
 import Field from '@/entities/Field.js';
 
 export default {
@@ -33,8 +33,8 @@ export default {
         type: Array[Field],
         required: true
       },
-      botoes: {
-        type: Array[botao],
+      buttons: {
+        type: Array[button],
         required: true
       },
       title: {

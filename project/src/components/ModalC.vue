@@ -12,7 +12,7 @@
                     </slot>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn m-1" v-for="botao in botoes" :key="botao.id" :class="[botao.classType]" @click="$emit(botao.eventEmit)" >{{botao.label}}</button>
+                    <button type="button" class="btn m-1" v-for="button in buttons" :key="button.id" :class="[button.classType]" @click="$emit(button.eventEmit)" >{{button.label}}</button>
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import botao from '@/entities/botao';
+import button from '@/entities/Button.js';
 export default {
     name: "ModalC",
     props:{
@@ -32,8 +32,8 @@ export default {
             required: true,
             type: Boolean
         },
-        botoes: {
-            type: Array[botao]
+        buttons: {
+            type: Array[button]
         }
     },
     emits: ['fecharModal']

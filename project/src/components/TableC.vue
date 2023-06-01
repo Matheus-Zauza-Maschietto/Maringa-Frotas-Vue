@@ -4,14 +4,14 @@
             <thead class="sticky-top fw-bold shadow-sm" style="background: var(--primary-green); color: white; height: 60px; vertical-align: middle;">
                 <tr>
                     <td v-for="head in headers" :key="head">{{ head }}</td>
-                    <td v-if="botoes">Ações</td>
+                    <td v-if="buttons">Ações</td>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="linha in body" :key="linha">
                     <td v-for="(item, index) in linha" :key="item" v-show="index!=='id'">{{ item }}</td>
-                    <td class="col-2" v-if="botoes">
-                        <button v-for="botao in botoes" :key="botao.id" class="col m-1 btn" :class="[botao.classType]" @click="$emit(botao.eventEmit, linha)">{{ botao.label }}</button>
+                    <td class="col-2" v-if="buttons">
+                        <button v-for="button in buttons" :key="button.id" class="col m-1 btn" :class="[button.classType]" @click="$emit(button.eventEmit, linha)">{{ button.label }}</button>
                     </td>
                 </tr>
             </tbody>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import botao from '@/entities/botao.js';
+import button from '@/entities/Button.js';
 
 export default {
     name: "TableC",
@@ -37,8 +37,8 @@ export default {
             required: true,
             linha: Object
         },
-        botoes: {
-            type: Array[botao],
+        buttons: {
+            type: Array[button],
         }
     }
 }

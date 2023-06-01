@@ -5,7 +5,7 @@
         <TableC 
         :headers="['Tipo', 'Custo', 'Placa do Veiculo', 'Data', 'Empresa']"
         :body="manutencoes"
-        :botoes="botoes"
+        :buttons="buttons"
         @exibirModal="iniciarModal($event)"
         />
     </div>
@@ -13,7 +13,7 @@
 
 <script>
 import TableC from "@/components/TableC.vue";
-import botao from "@/entities/botao";
+import button from "@/entities/Button";
 import SideMenuC from "@/components/SideMenuC.vue"
 import Manutencoes from "@/services/Manutencoes";
 
@@ -27,8 +27,8 @@ export default {
     return{
       exibirModal: false,
       body: '',
-      botoes: [
-        new botao(1, 'Detalhes', 'btn-success', 'exibirModal')
+      buttons: [
+        new button(1, 'Detalhes', 'btn-success', 'exibirModal')
       ],
       manutencoes: []
     }

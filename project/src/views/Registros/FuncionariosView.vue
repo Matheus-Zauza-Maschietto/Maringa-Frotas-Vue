@@ -5,7 +5,7 @@
         <TableC 
         :headers="['Nome', 'CPF', 'CNH', 'Orgão', 'Cargo']"
         :body="$store.state.funcionarios"
-        :botoes="botoes"
+        :buttons="buttons"
         @exibirModal="iniciarModal($event)"
         @deletarRegistro="deletarRegistro($event)"
         />
@@ -14,7 +14,7 @@
 
 <script>
 import TableC from "@/components/TableC.vue";
-import botao from "@/entities/botao";
+import button from "@/entities/Button";
 import SideMenuC from "@/components/SideMenuC.vue"
 import Funcionarios from "@/services/Funcionarios";
 
@@ -28,9 +28,9 @@ export default {
     return{
       exibirModal: false,
       body: '',
-      botoes: [
-        new botao(1, 'Viagens', 'btn-primary', 'exibirModal'),
-        new botao(1, 'Deletar', 'btn-danger', 'deletarRegistro')
+      buttons: [
+        new button(1, 'Viagens', 'btn-primary', 'exibirModal'),
+        new button(1, 'Deletar', 'btn-danger', 'deletarRegistro')
       ]
     }
   },
