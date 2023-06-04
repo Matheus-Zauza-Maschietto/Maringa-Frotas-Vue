@@ -1,88 +1,22 @@
 <template>
-  <div class="home">
+  <div id="home">
     <SideMenuC/>
-    <TableC
-      :headers="['Placa', 'Tipo de Veiculo', 'Modelo', 'Quilometragem']"
-      :body="[{Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-1111', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-2222', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-3333', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-4444', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-5555', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-6666', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-7777', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-8888', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'}]"
-      :buttons="buttons"
-      @exibirModal="iniciarModal($event)"
-    />
+      <h1 class="text-center fw-bolder p-5 w-50 m-auto rounded-4" style="background-color: #1f1717f0;">Maringa Frotas's</h1>
 
-    <button class="btn btn-outline-primary" @click="exibirModal = !exibirModal">botão que abre modal</button>
-    <ModalC titulo="titulo do modal" :exibir="exibirModal" @fecharModal="exibirModal=false" :buttons="buttons">
-      <FormC :buttons="buttons" :fields="fields"/>
-    </ModalC>
-    
-    <SideMenuC/>
-    <TableC
-      :headers="['Placa', 'Tipo de Veiculo', 'Modelo', 'Quilometragem']"
-      :body="[{Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-1111', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-2222', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-3333', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-4444', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-5555', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-6666', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-7777', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-8888', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'}]"
-      :buttons="buttons"
-      @exibirModal="iniciarModal($event)"
-    /><SideMenuC/>
-    <TableC
-      :headers="['Placa', 'Tipo de Veiculo', 'Modelo', 'Quilometragem']"
-      :body="[{Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-1111', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-2222', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-3333', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-4444', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-5555', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-6666', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-7777', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-8888', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'}]"
-      :buttons="buttons"
-      @exibirModal="iniciarModal($event)"
-    /><SideMenuC/>
-    <TableC
-      :headers="['Placa', 'Tipo de Veiculo', 'Modelo', 'Quilometragem']"
-      :body="[{Placa: 'xxx-0000', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-1111', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-2222', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-3333', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-4444', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-5555', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-6666', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-7777', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'},
-              {Placa: 'xxx-8888', TipoDeVeiculo: 'Carro', Modelo: 'Civic', Quilometragem: '192839 Km'}]"
-      :buttons="buttons"
-      @exibirModal="iniciarModal($event)"
-    />
-
+    <div id="background-img">
+    </div>
   </div>
 </template>
 
 <script>
 import SideMenuC from "@/components/SideMenuC.vue";
-import TableC from "@/components/TableC.vue";
 import button from "@/entities/Button";
-import ModalC from "@/components/ModalC.vue";
-import FormC from "@/components/FormC.vue";
 import field from "@/entities/Field";
 
 export default {
   name: 'HomeView',
   components: {
     SideMenuC,
-    TableC,
-    ModalC,
-    FormC
   },
   data(){
     return{
@@ -109,6 +43,23 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  #background-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-image: url(../assets/frota_default.jpg);
+    background-position: center bottom;
+    filter: blur(2px) brightness(0.9);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+  }
 
+  h1{
+        font-family: var(--primary-font-serif), 'Times New Roman', Times, serif;
+        color: var(--primary-green);
+    }
 </style>

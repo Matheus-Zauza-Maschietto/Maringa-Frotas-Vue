@@ -1,6 +1,6 @@
 <template>
   <div id="menu">
-    <font-awesome-icon icon="fa-solid fa-bars" size="xl" class="m-3" @click="abrirMenu"/>
+    <font-awesome-icon icon="fa-solid fa-bars" size="xl" class="m-2 p-1 rounded-1" style="background: white;" @click="abrirMenu"/>
     <div :class="['offcanvas', 'offcanvas-start', {'show': $store.state.menu}]"  tabindex="-1" id="side-bar">
       <div class="offcanvas-header">
         

@@ -8,61 +8,92 @@
             <div class="row justify-content-center">
                 <div class="mb-3 col-12">
                     <label for="opcaoManutencao" class="form-label">Opções de Manutenção</label>
-                    <SelectCVue :options="options" id="opcaoManutencao"/>
+                    <select name="" class="form-select" v-model="fields.tipoManutencao" id="opcaoManutencao">
+                        <option v-for="option in tiposManutencao" :key="option.idTipoRevisao" :value="option.idTipoRevisao">{{ option.descricaoRevisao }}</option>
+                    </select>
                 </div>
             </div>
 
             <div class="row justify-content-center">
                 <div class="mb-3 col-md-6 col-12">
                     <label for="empresasManutencao" class="form-label">Empresas de Manutenção</label>
-                    <SelectCVue :options="options" id="empresasManutencao"/>
+
+                    <select name="" class="form-select" v-model="fields.idEmpresa" id="empresasManutencao">
+                        <option v-for="empresa in $store.state.empresas" :key="empresa.id" :value="empresa.id">{{ empresa.nome }}</option>
+                    </select>
                 </div>
+
                 <div class="mb-4 col-md-6 col-12">
                     <label for="dataManutencao" class="form-label">Data da Manutenção</label>
-                    <input type="number" class="form-control" id="dataManutencao">
+                    <input type="date" class="form-control" id="dataManutencao" v-model="fields.dataRevisao">
                 </div>
             </div>
             
             <div class="row justify-content-center">
                 <div class="mb-3 col-md-6 col-12">
                     <label for="placaAutomovel" class="form-label">Placa do Automovel</label>
-                    <input type="text" class="form-control" id="placaAutomovel" placeholder="00.000.000/0000-00">
+                    <input type="text" class="form-control" id="placaAutomovel" placeholder="ABC1234" v-model="fields.placa">
                 </div>
+
                 <div class="mb-4 col-md-6 col-12">
                     <label for="valorManutencao" class="form-label">Valor da Manutenção</label>
-                    <input type="number" class="form-control" id="valorManutencao" placeholder="(00) 90000-0000">
+                    <input type="number" class="form-control" id="valorManutencao" placeholder="R$ 0" v-model="fields.valor">
                 </div>
             </div>
 
             <div class="mb-4 col-12">
                 <label for="valorManutencao" class="form-label">Descrição da Manutenção</label>
-                <textarea name="" id="" cols="30" rows="10" class="form-control col-12"></textarea>
+                <textarea name="" id="" cols="30" rows="10" class="form-control col-12" v-model="fields.descricao"></textarea>
             </div>
 
-            <button class="btn btn-success d-block m-auto">Adicionar Empresa</button>
+            <button class="btn btn-success d-block m-auto" @click.prevent="criarManutencao()">Adicionar Manutenção</button>
         </form>
     </div>
 </template>
 
 <script>
-import SelectCVue from '../../components/inputs/SelectC.vue'
 import SideMenuC from "@/components/SideMenuC.vue"
-import option from "@/entities/Option";
+import Empresas from "@/services/Empresas";
+import Manutencoes from "@/services/Manutencoes";
 
 export default {
     name: "CadastroManutencoesView",
     components: {
-        SideMenuC,
-        SelectCVue
+        SideMenuC
     },
     data(){
         return{
-            options: [
-                new option(1, 'test1', 'Teste 1'),
-                new option(2, 'test2', 'Teste 2'),
-                new option(3, 'test3', 'Teste 3')
-            ],
+            tiposManutencao: [],
+            fields: {
+                tipoManutencao: '',
+                idEmpresa: '',
+                dataRevisao: '',
+                placa: '',
+                valor: '',
+                descricao: ''
+            }
         }
+    },
+    methods: {
+        criarManutencao(){
+            Manutencoes.criar(this.fields)
+            .then(() => {
+                alert("Manutencão criada com sucesso")
+                this.$router.push('/registros/manutencoes')
+            })
+            .catch(() => {
+                alert("Não foi possivel criar essa manutenção")
+            })
+        }
+    },
+    created(){
+        Empresas.listar().then((retorno) => {
+            this.$store.commit('inserirEmpresa', retorno.data)
+        })
+
+        Manutencoes.listarTipos().then((retorno) => {
+            this.tiposManutencao = retorno.data
+        })
     }
 }
 </script>

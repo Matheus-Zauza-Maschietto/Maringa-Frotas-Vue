@@ -4,7 +4,7 @@
         <h2 class="text-center">Manutenções</h2>
         <TableC 
         :headers="['Tipo', 'Custo', 'Placa do Veiculo', 'Data', 'Empresa']"
-        :body="manutencoes"
+        :body="$store.state.manutencoes"
         :buttons="buttons"
         @exibirModal="iniciarModal($event)"
         />
@@ -41,7 +41,7 @@ export default {
   },
   created(){
     Manutencoes.listar().then((retorno) => {
-      this.manutencoes = retorno.data
+      this.$store.commit('inserirManutencao', retorno.data)
     })
   }
 }

@@ -50,11 +50,7 @@ export default {
         }
     },
     methods: {
-        async criarEmpresa(){
-            this.fields.cepEmpresa = Number(this.fields.cepEmpresa)
-            this.fields.cnpjEmpresa = Number(this.fields.cnpjEmpresa)
-            this.fields.telefoneEmpresa = Number(this.fields.telefoneEmpresa)
-
+        criarEmpresa(){
             Empresas.criar(this.fields)            
             .then(() => {
                 alert('Empresa Adicionada com sucesso')
@@ -63,7 +59,6 @@ export default {
             .catch(() => {
                 alert('Não foi possivel adicionar uma empresa')
             })
-            
 
         }
     }

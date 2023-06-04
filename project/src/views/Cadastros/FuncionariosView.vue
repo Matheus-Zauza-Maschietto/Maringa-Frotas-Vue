@@ -86,7 +86,7 @@ export default {
                 this.$router.push('/registros/funcionarios')
             })
             .catch(() => {
-                alert("Não foi possivel criar esse usuário")
+                alert("Não foi possivel criar esse funcionário")
             })
         }
     },

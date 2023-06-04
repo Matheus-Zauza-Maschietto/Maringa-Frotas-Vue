@@ -1,5 +1,5 @@
 <template>
-    <div id="veiculosView">
+    <div>
         <SideMenuC/>
         <h2 class="text-center">Veiculos</h2>
         <TableC 
@@ -57,8 +57,4 @@ export default {
 </script>
 
 <style scoped>
-  #veiculosView{
-    min-height: 100vh;
-    background-color: rgb(204, 204, 204);
-  }
 </style>
