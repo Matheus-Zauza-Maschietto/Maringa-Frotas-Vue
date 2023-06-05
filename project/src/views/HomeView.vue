@@ -1,8 +1,7 @@
 <template>
   <div id="home">
     <SideMenuC/>
-      <h1 class="text-center fw-bolder p-5 w-50 m-auto rounded-4" style="background-color: #1f1717f0;">Maringa Frotas's</h1>
-
+      <h1 class="text-center fw-bolder p-5 col-md-6 m-auto rounded-4" style="background-color: #1f1717f0;">Maringa Frotas's</h1>
     <div id="background-img">
     </div>
   </div>
