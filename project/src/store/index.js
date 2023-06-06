@@ -2,6 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    isLogado: false,
+    username: '',
     empresas: [],
     funcionarios: [],
     veiculos: [],
@@ -11,6 +13,13 @@ export default createStore({
   getters: {
   },
   mutations: {
+    logarUsuario(state, username){
+      state.username = username
+      state.isLogado = true;
+    },
+    deslogarUsuario(state){
+      state.isLogado = false;
+    },
     inserirEmpresa(state, empresas){
       state.empresas = empresas
     },

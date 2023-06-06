@@ -12,9 +12,9 @@
       <div class="offcanvas-body">
         <div class="text-center p-4">
           <a href="#" class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none">
-            <img src="https://github.com/mdo.png" alt="mdo" width="100" height="100" class="rounded-circle">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5PvoFdSNKZ1QYYdfQM2LO4vMojPDzJfIDcm-iID0&s" alt="mdo" width="100" height="100" class="rounded-circle">
           </a>
-          <span>Fulano de Tal da Silva</span>
+          <span>{{ this.$store.state.username }}</span>
         </div>
 
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
@@ -53,7 +53,7 @@
         </ul>
 
         <span class="position-absolute bottom-0 end-0 m-3">
-          <router-link :to="{name: 'login'}">logout</router-link>
+          <router-link :to="{name: 'login'}" @click="delogar()">logout</router-link>
         </span>
       </div>
     </div>
@@ -69,6 +69,9 @@ export default {
       },
       abrirMenu(){
         this.$store.state.menu = true
+      },
+      delogar(){
+        this.$store.commit('deslogarUsuario')
       }
     }
 }

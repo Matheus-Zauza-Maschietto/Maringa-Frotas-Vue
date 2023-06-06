@@ -86,6 +86,14 @@
                         <input type="number" class="form-control" id="capacidadeTanque" v-model="fields.capacidadeTanque">
                     </div>
                 </div>
+                <div class="row justify-content-center">
+                    <div class="mb-4 col-12">
+                        <label for="orgaoPublico" class="form-label">Orgão Publico</label>
+                        <select name="" class="form-select" v-model="fields.orgao" id="orgaoPublico">
+                            <option v-for="option in orgaosPublico" :key="option.id" :value="option.id">{{ option.text }}</option>
+                        </select>
+                    </div>
+                </div>
                 <button class="btn btn-success d-block m-auto" @click.prevent="criarVeiculo()">Adicionar Veiculo</button>
             </div>
         </form>
@@ -96,7 +104,8 @@
 import SideMenuC from "@/components/SideMenuC.vue"
 import Marcas from '@/services/Marcas.js'
 import Modelos from '@/services/Modelos.js'
-import Veiculos from "@/services/Veiculos"
+import Veiculos from "@/services/Veiculos.js"
+import Orgaos from "@/services/Orgaos.js"
 
 export default {
     name: "CadastroVeiculosView",
@@ -119,18 +128,15 @@ export default {
                     id: 2
                 },
                 {
-                    text: 'Carro',
+                    text: 'Ônibus',
                     id: 3
                 },
                 {
-                    text: 'Ônibus',
+                    text: 'Furgão',
                     id: 4
                 },
-                {
-                    text: 'Furgão',
-                    id: 5
-                },
             ],
+            orgaosPublico: [],
             modelosVeiculo: [],
             marcasVeiculo: [],
             tiposModelo: [],
@@ -173,7 +179,8 @@ export default {
                 anoModelo: '',
                 dataAquisicao: '',
                 quilometrosRodados: '',
-                capacidadeTanque: ''
+                capacidadeTanque: '',
+                orgao: ''
             }
         }
     },
@@ -201,6 +208,10 @@ export default {
         Marcas.listar(this.fields)
         .then((retorno) => {
             this.marcasVeiculo = retorno.data
+        })
+
+        Orgaos.listar().then((retorno) => {
+            this.orgaosPublico = retorno.data
         })
     }
 }

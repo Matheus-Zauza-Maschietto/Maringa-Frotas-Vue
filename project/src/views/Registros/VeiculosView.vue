@@ -29,7 +29,7 @@ export default {
       exibirModal: false,
       body: '',
       buttons: [
-        new button(1, 'Viagens', 'btn-primary', 'exibirModal'),
+        //new button(1, 'Viagens', 'btn-primary', 'exibirModal'),
         new button(1, 'Deletar', 'btn-danger', 'deletarRegistro')
       ]
     }

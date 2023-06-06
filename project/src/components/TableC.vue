@@ -1,6 +1,13 @@
 <template>
     <div class="table-responsive"  id="tabela">
 
+        <!-- <table v-if="body.length == 0">
+            <tr>
+                <td v-for="head in headers" :key="head">{{ head }}</td>
+                <td v-if="buttons">Ações</td>
+            </tr>
+        </table> -->
+
         <table class="table table-hover text-center align-middle">
 
             <thead class="sticky-top fw-bold shadow-sm" style="background: var(--primary-green); color: white; height: 60px; vertical-align: middle;">
@@ -9,7 +16,6 @@
                     <td v-if="buttons">Ações</td>
                 </tr>
             </thead>
-            
             <tbody>
                 <tr v-for="linha in body" :key="linha">
 
