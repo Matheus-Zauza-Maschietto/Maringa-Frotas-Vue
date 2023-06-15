@@ -3,10 +3,9 @@
         <SideMenuC/>
         <h2 class="text-center">Veiculos</h2>
         <TableC 
-        :headers="['Placa', 'Tipo de Veiculo', 'Modelo', 'Marca', 'Tipo de Combustivel', 'Quilometragem', 'Orgão', 'Data de Aquisição', 'Status', 'Em Leilão']"
+        :headers="['Placa', 'Tipo de Veiculo', 'Modelo', 'Marca', 'Quilometragem', 'Orgão', 'Data de Aquisição', 'Status', 'Em Leilão']"
         :body="$store.state.veiculos"
         :buttons="buttons"
-        @exibirModal="iniciarModal($event)"
         @deletarRegistro="deletarRegistro($event)"
         />
     </div>
@@ -29,7 +28,7 @@ export default {
       exibirModal: false,
       body: '',
       buttons: [
-        //new button(1, 'Viagens', 'btn-primary', 'exibirModal'),
+        new button(1, 'Viagens', 'btn-primary', 'exibirModal'),
         new button(1, 'Deletar', 'btn-danger', 'deletarRegistro')
       ]
     }

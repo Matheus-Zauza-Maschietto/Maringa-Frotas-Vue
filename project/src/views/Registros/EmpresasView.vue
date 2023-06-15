@@ -28,7 +28,7 @@ export default {
     return{
       exibirModal: false,
       buttons: [
-        new button(1, 'Seviços', 'btn-primary', 'exibirModal'),
+        //new button(1, 'Seviços', 'btn-primary', 'exibirModal'),
         new button(2, 'Deletar', 'btn-danger', 'deletarRegistro')
       ],
     }

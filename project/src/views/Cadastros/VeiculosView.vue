@@ -194,7 +194,6 @@ export default {
         },
 
         criarVeiculo(){
-             
             Veiculos.criar(this.fields).then(() => {
                 alert('Veiculo Adicionado com sucesso')
                 this.$router.push('/registros/veiculos')

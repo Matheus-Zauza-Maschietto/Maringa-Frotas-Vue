@@ -6,7 +6,6 @@
         :headers="['Nome', 'CPF', 'CNH', 'Orgão', 'Cargo']"
         :body="$store.state.funcionarios"
         :buttons="buttons"
-        @exibirModal="iniciarModal($event)"
         @deletarRegistro="deletarRegistro($event)"
         />
     </div>
@@ -59,6 +58,5 @@ export default {
 <style>
   #funcionariosView{
     min-height: 100vh;
-    background-color: rgb(204, 204, 204);
   }
 </style>
